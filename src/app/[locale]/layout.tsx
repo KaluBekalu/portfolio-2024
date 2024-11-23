@@ -118,7 +118,7 @@ export default async function RootLayout({
 						fillWidth
 						minHeight="16">
 					</Flex>
-					<Header/>
+					{/* <Header/> */}
 					<Flex
 						zIndex={0}
 						fillWidth paddingY="l" paddingX="l"
