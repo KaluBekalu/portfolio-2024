@@ -18,6 +18,11 @@ const createI18nContent = (t) => {
         title: <>{t("newsletter.title", {firstName: person.firstName})}</>,
         description: <>{t("newsletter.description")}</>
     }
+    const contact = {
+        display: true,
+        title: <>{t("newsletter.title", {firstName: person.firstName})}</>,
+        description: <>{t("newsletter.description")}</>
+    }
 
     const social = [
         // Links are automatically displayed.
@@ -249,6 +254,7 @@ const createI18nContent = (t) => {
         person,
         social,
         newsletter,
+        contact,
         home,
         about,
         blog,

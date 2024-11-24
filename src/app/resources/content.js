@@ -24,6 +24,16 @@ const newsletter = {
   ),
 };
 
+const contact = {
+  display: true,
+  title: <>Let's Connect 📫</>,
+  description: (
+    <>
+     Email me using the bellow form. I'll respond fast 🤞
+    </>
+  ),
+};
+
 const social = [
   {
     name: "GitHub",
@@ -170,37 +180,18 @@ const about = {
         title: "React",
         description: <>Building dynamic and interactive user interfaces.</>,
         images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
+          // {
+          //   src: "/images/projects/project-01/cover-02.jpg",
+          //   alt: "Project image",
+          //   width: 16,
+          //   height: 9,
+          // },
         ],
       },
       {
         title: "Node.js",
         description: <>Creating robust backend services and APIs.</>,
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
         title: "Microservices",
@@ -248,4 +239,4 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter,contact, home, about, blog, work, gallery };

@@ -1,4 +1,5 @@
 import {
+  Arrow,
   Avatar,
   Button,
   Flex,
@@ -16,6 +17,21 @@ import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
+
+import { Raleway } from "next/font/google";
+import { Sora } from "next/font/google";
+
+const primary = Raleway({
+  variable: "--font-primary",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const secondary = Sora({
+  variable: "--font-secondary",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export async function generateMetadata({
   params: { locale },
@@ -158,15 +174,15 @@ export default function About({
           maxWidth={40}
           direction="column"
         >
-            <Flex
-              id={about.intro.title}
-              fillWidth
-              minHeight="160"
-              direction="column"
-              justifyContent="center"
-              marginBottom="32"
-            >
-              {about.calendar.display && (
+          <Flex
+            id={about.intro.title}
+            fillWidth
+            minHeight="160"
+            direction="column"
+            justifyContent="center"
+            marginBottom="32"
+          >
+            {/* {about.calendar.display && (
                 <Flex
                   className={styles.blockAlign}
                   style={{
@@ -193,49 +209,46 @@ export default function About({
                     icon="chevronRight"
                   />
                 </Flex>
-              )}
+              )} */}
 
-              <GlitchFx>
-                <Heading
-                  className={styles.textAlign}
-                  variant="display-strong-xl"
+            <GlitchFx>
+              <Heading className={styles.textAlign} variant="display-strong-xl">
+                {person.name}
+              </Heading>
+            </GlitchFx>
+            <RevealFx>
+              <Text
+                className={styles.textAlign}
+                variant="display-default-xs"
+                onBackground="neutral-weak"
+              >
+                {person.role}
+              </Text>
+              {social.length > 0 && (
+                <Flex
+                  className={styles.blockAlign}
+                  paddingTop="20"
+                  paddingBottom="8"
+                  gap="8"
+                  wrap
                 >
-                  {person.name}
-                </Heading>
-              </GlitchFx>
-              <RevealFx>
-                <Text
-                  className={styles.textAlign}
-                  variant="display-default-xs"
-                  onBackground="neutral-weak"
-                >
-                  {person.role}
-                </Text>
-                {social.length > 0 && (
-                  <Flex
-                    className={styles.blockAlign}
-                    paddingTop="20"
-                    paddingBottom="8"
-                    gap="8"
-                    wrap
-                  >
-                    {social.map(
-                      (item: any) =>
-                        item.link && (
-                          <Button
-                            key={item.name}
-                            href={item.link}
-                            prefixIcon={item.icon}
-                            label={item.name}
-                            size="s"
-                            variant="tertiary"
-                          />
-                        )
-                    )}
-                  </Flex>
-                )}
-              </RevealFx>
-            </Flex>
+                  {social.map(
+                    (item: any) =>
+                      item.link && (
+                        <Button
+                          key={item.name}
+                          href={item.link}
+                          prefixIcon={item.icon}
+                          label={item.name}
+                          size="s"
+                          variant="tertiary"
+                        />
+                      )
+                  )}
+                </Flex>
+              )}
+            </RevealFx>
+          </Flex>
 
           {about.intro.display && (
             <Flex
@@ -243,11 +256,35 @@ export default function About({
               textVariant="body-default-l"
               fillWidth
               gap="m"
-              marginBottom="xl"
             >
               {about.intro.description}
             </Flex>
           )}
+
+          <RevealFx translateY="12" delay={0.4}>
+            <Flex fillWidth style={{marginTop:30, marginBottom:120}}>
+              <Button
+                id="contact"
+                data-border="rounded"
+                // href={`/${locale}/contact`}
+                href="mailto:kalkidan.bekalu@yahoo.com"
+                variant="tertiary"
+                size="m"
+              >
+                <Flex gap="8" alignItems="center">
+                  {about.avatar.display && (
+                    <Avatar
+                      style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
+                      src={person.avatar}
+                      size="m"
+                    />
+                  )}
+                  {"Let's have a chat!"}
+                  <Arrow trigger="#contact" />
+                </Flex>
+              </Button>
+            </Flex>
+          </RevealFx>
 
           {about.work.display && (
             <>
@@ -419,160 +456,3 @@ export default function About({
     </Flex>
   );
 }
-
-// import React from 'react';
-
-// import { Heading, Flex, Text, Button,  Avatar, RevealFx, Arrow } from '@/once-ui/components';
-// import { Projects } from '@/components/work/Projects';
-
-// import { baseURL, routes, renderContent } from '@/app/resources';
-// import { Mailchimp } from '@/components';
-// import { Posts } from '@/components/blog/Posts';
-// import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
-// import { useTranslations } from 'next-intl';
-
-// export async function generateMetadata(
-// 	{params: {locale}}: { params: { locale: string }}
-// ) {
-// 	const t = await getTranslations();
-//     const { home } = renderContent(t);
-// 	const title = home.title;
-// 	const description = home.description;
-// 	const ogImage = `https://${baseURL}/og?title=${encodeURIComponent(title)}`;
-
-// 	return {
-// 		title,
-// 		description,
-// 		openGraph: {
-// 			title,
-// 			description,
-// 			type: 'website',
-// 			url: `https://${baseURL}/${locale}`,
-// 			images: [
-// 				{
-// 					url: ogImage,
-// 					alt: title,
-// 				},
-// 			],
-// 		},
-// 		twitter: {
-// 			card: 'summary_large_image',
-// 			title,
-// 			description,
-// 			images: [ogImage],
-// 		},
-// 	};
-// }
-
-// export default function Home(
-// 	{ params: {locale}}: { params: { locale: string }}
-// ) {
-// 	unstable_setRequestLocale(locale);
-// 	const t = useTranslations();
-// 	const { home, about, person, newsletter } = renderContent(t);
-// 	return (
-// 		<Flex
-// 			maxWidth="m" fillWidth gap="xl"
-// 			direction="column" alignItems="center">
-// 			<script
-// 				type="application/ld+json"
-// 				suppressHydrationWarning
-// 				dangerouslySetInnerHTML={{
-// 					__html: JSON.stringify({
-// 						'@context': 'https://schema.org',
-// 						'@type': 'WebPage',
-// 						name: home.title,
-// 						description: home.description,
-// 						url: `https://${baseURL}`,
-// 						image: `${baseURL}/og?title=${encodeURIComponent(home.title)}`,
-// 						publisher: {
-// 							'@type': 'Person',
-// 							name: person.name,
-// 							image: {
-// 								'@type': 'ImageObject',
-// 								url: `${baseURL}${person.avatar}`,
-// 							},
-// 						},
-// 					}),
-// 				}}
-// 			/>
-// 			<Flex
-// 				fillWidth
-// 				direction="column"
-// 				paddingY="l" gap="m">
-// 					<Flex
-// 						direction="column"
-// 						fillWidth maxWidth="s" gap="m">
-// 						<RevealFx
-// 							translateY="4">
-// 							<Heading
-// 								wrap="balance"
-// 								variant="display-strong-l">
-// 								{home.headline}
-// 							</Heading>
-// 						</RevealFx>
-// 						<RevealFx
-// 							translateY="8" delay={0.2}>
-// 							<Flex fillWidth>
-// 								<Text
-// 									wrap="balance"
-// 									onBackground="neutral-weak"
-// 									variant="heading-default-xl">
-// 									{home.subline}
-// 								</Text>
-// 							</Flex>
-// 						</RevealFx>
-// 						<RevealFx translateY="12" delay={0.4}>
-// 							<Flex fillWidth>
-// 								<Button
-// 									id="about"
-// 									data-border="rounded"
-// 									href={`/${locale}/about`}
-// 									variant="tertiary"
-// 									size="m">
-// 									<Flex
-// 										gap="8"
-// 										alignItems="center">
-// 										{about.avatar.display && (
-// 											<Avatar
-// 												style={{marginLeft: '-0.75rem', marginRight: '0.25rem'}}
-// 												src={person.avatar}
-// 												size="m"/>
-// 											)}
-// 											{t("about.title")}
-// 											<Arrow trigger="#about"/>
-// 									</Flex>
-// 								</Button>
-// 							</Flex>
-// 						</RevealFx>
-// 					</Flex>
-
-// 			</Flex>
-// 			<RevealFx translateY="16" delay={0.6}>
-// 				<Projects range={[1,1]} locale={locale}/>
-// 			</RevealFx>
-// 			{routes['/blog'] && (
-// 				<Flex
-// 					fillWidth gap="24"
-// 					mobileDirection="column">
-// 					<Flex flex={1} paddingLeft="l">
-// 						<Heading
-// 							as="h2"
-// 							variant="display-strong-xs"
-// 							wrap="balance">
-// 							Latest from the blog
-// 						</Heading>
-// 					</Flex>
-// 					<Flex
-// 						flex={3} paddingX="20">
-// 						<Posts range={[1,2]} columns="2" locale={locale}/>
-// 					</Flex>
-// 				</Flex>
-// 			)}
-// 			<Projects range={[2]} locale={locale}/>
-// 			{ newsletter.display &&
-// 				<Mailchimp newsletter={newsletter} />
-// 			}
-// 		</Flex>
-// 	);
-// }
