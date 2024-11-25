@@ -12,6 +12,7 @@ import {
   Tag,
   Text,
 } from "@/once-ui/components";
+import { FaFile } from "react-icons/fa";
 import { baseURL, renderContent } from "@/app/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
@@ -54,7 +55,7 @@ export async function generateMetadata({
       url: `https://${baseURL}/${locale}/blog`,
       images: [
         {
-          url: ogImage,
+          // url: ogImage,
           alt: title,
         },
       ],
@@ -216,7 +217,7 @@ export default function About({
                 {person.name}
               </Heading>
             </GlitchFx>
-            <RevealFx>
+            <RevealFx style={{ flexDirection: "column" }}>
               <Text
                 className={styles.textAlign}
                 variant="display-default-xs"
@@ -224,6 +225,7 @@ export default function About({
               >
                 {person.role}
               </Text>
+
               {social.length > 0 && (
                 <Flex
                   className={styles.blockAlign}
@@ -245,6 +247,14 @@ export default function About({
                         />
                       )
                   )}
+                  <Button
+                    id="resume"
+                    label="Resume"
+                    prefixIcon="file"
+                    href="/Kalkidan_Resume_2024.pdf"
+                    size="s"
+                    variant="tertiary"
+                  />
                 </Flex>
               )}
             </RevealFx>
@@ -261,12 +271,11 @@ export default function About({
             </Flex>
           )}
 
-          <RevealFx translateY="12" delay={0.4}>
-            <Flex fillWidth style={{marginTop:30, marginBottom:120}}>
+          <Flex fillWidth style={{ marginTop: 30, marginBottom: 120 }}>
+            <RevealFx translateY="12" delay={0.4}>
               <Button
                 id="contact"
                 data-border="rounded"
-                // href={`/${locale}/contact`}
                 href="mailto:kalkidan.bekalu@yahoo.com"
                 variant="tertiary"
                 size="m"
@@ -283,8 +292,8 @@ export default function About({
                   <Arrow trigger="#contact" />
                 </Flex>
               </Button>
-            </Flex>
-          </RevealFx>
+            </RevealFx>
+          </Flex>
 
           {about.work.display && (
             <>

@@ -19,7 +19,7 @@ import {
 	HiEnvelope,
 	HiCalendarDays
 } from "react-icons/hi2";
-
+import { IoDocumentAttachSharp } from "react-icons/io5";
 import {
 	PiHouseDuotone,
 	PiUserCircleDuotone,
@@ -49,6 +49,7 @@ export const iconLibrary: Record<string, IconType> = {
 	errorCircle: HiExclamationCircle,
 	checkCircle: HiCheckCircle,
 	email: HiEnvelope,
+	file:IoDocumentAttachSharp,
 	globe: HiMiniGlobeAsiaAustralia,
 	person: PiUserCircleDuotone,
 	grid: PiGridFourDuotone,
