@@ -106,6 +106,9 @@ const Dialog: React.FC<DialogProps> = forwardRef<HTMLDivElement, DialogProps>(({
             ref={ref}
             className={classNames(styles.overlay, className, { [styles.open]: isAnimating })}
             style={style}
+            onClick={(event: React.MouseEvent) => {
+                if (event.target === event.currentTarget) onClose();
+            }}
             justifyContent="center"
             alignItems="center"
             padding="l"

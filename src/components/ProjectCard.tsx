@@ -1,7 +1,7 @@
 "use client";
 
-import { AvatarGroup, Flex, Heading, RevealFx, SmartImage, SmartLink, Text } from "@/once-ui/components";
-import { useEffect, useState } from "react";
+import { AvatarGroup, Button, Dialog, Flex, Heading, RevealFx, SmartImage, Text } from "@/once-ui/components";
+import { ReactNode, useEffect, useState } from "react";
 import { useTranslations } from 'next-intl';
 
 interface ProjectCardProps {
@@ -11,6 +11,7 @@ interface ProjectCardProps {
     content: string;
     description: string;
     avatars: { src: string }[];
+    children?: ReactNode;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -19,10 +20,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     title,
     content,
     description,
-    avatars
+    avatars,
+    children
 }) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
 
     const t = useTranslations();
 
@@ -35,11 +38,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     }, []);
 
     const handleImageClick = () => {
-        if(images.length > 1) {
+        if (images.length > 1) {
             setIsTransitioning(false);
             const nextIndex = (activeIndex + 1) % images.length;
             handleControlClick(nextIndex);
-
+        } else if (children) {
+            setIsDialogOpen(true);
         }
     };
 
@@ -71,7 +75,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                         src={images[activeIndex]}
                         style={{
                             border: '1px solid var(--neutral-alpha-weak)',
-                            ...(images.length > 1 && {
+                            ...((images.length > 1 || children) && {
                                 cursor: 'pointer',
                             }),
                         }}/>
@@ -87,8 +91,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                             key={index}
                             onClick={() => handleControlClick(index)}
                             style={{
-                                background: activeIndex === index 
-                                    ? 'var(--neutral-on-background-strong)' 
+                                background: activeIndex === index
+                                    ? 'var(--neutral-on-background-strong)'
                                     : 'var(--neutral-alpha-medium)',
                                 cursor: 'pointer',
                                 transition: 'background 0.3s ease',
@@ -131,20 +135,39 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                                 {description}
                             </Text>
                         )}
-                        {content?.trim() && (
-                            <SmartLink
+                        {children && (
+                            <Button
+                                style={{width: 'fit-content'}}
+                                variant="tertiary"
+                                size="s"
                                 suffixIcon="chevronRight"
-                                style={{margin: '0', width: 'fit-content'}}
-                                href={href}>
-                                    <Text
-                                        variant="body-default-s">
-                                       {t("projectCard.label")}
-                                    </Text>
-                            </SmartLink>
+                                onClick={() => setIsDialogOpen(true)}
+                                label={t("projectCard.label")}/>
                         )}
                     </Flex>
                 )}
             </Flex>
+            {children && (
+                <Dialog
+                    isOpen={isDialogOpen}
+                    onClose={() => setIsDialogOpen(false)}
+                    title={title}
+                    secondaryButtonProps={{
+                        label: "Open full page",
+                        suffixIcon: "chevronRight",
+                        variant: "tertiary",
+                        onClick: () => window.open(href, "_blank", "noreferrer"),
+                    }}
+                    primaryButtonProps={{
+                        label: "Close",
+                        variant: "secondary",
+                        onClick: () => setIsDialogOpen(false),
+                    }}>
+                    <Flex direction="column" fillWidth paddingTop="8" as="article">
+                        {children}
+                    </Flex>
+                </Dialog>
+            )}
         </Flex>
     );
 };

@@ -17,14 +17,14 @@
 }
 
 .dialog {
-    transform: scale(0.2);
+    transform: scale(0.97) translateY(var(--static-space-16));
     opacity: 0;
     box-shadow: var(--shadow-xl);
-    max-width: 40rem;
+    max-width: 52rem;
     transition: var(--transition-macro-medium);
 
     &.open {
-        transform: scale(1);
+        transform: scale(1) translateY(0);
         opacity: 1;
         visibility: visible;
     }

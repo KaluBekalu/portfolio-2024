@@ -2,6 +2,7 @@ import { getPosts } from '@/app/utils/utils';
 import { Flex } from '@/once-ui/components';
 
 import { ProjectCard } from '@/components';
+import { CustomMDX } from '@/components/mdx';
 
 interface ProjectsProps {
     range?: [number, number?];
@@ -26,12 +27,14 @@ export function Projects({ range, locale }: ProjectsProps) {
             {displayedProjects.map((post) => (
                 <ProjectCard
                     key={post.slug}
-                    href={`work/${post.slug}`}
+                    href={`/work/${post.slug}`}
                     images={post.metadata.images}
                     title={post.metadata.title}
                     description={post.metadata.summary}
                     content={post.content}
-                    avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}/>
+                    avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}>
+                    {post.content?.trim() && <CustomMDX source={post.content} />}
+                </ProjectCard>
             ))}
         </Flex>
     );

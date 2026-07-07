@@ -93,6 +93,8 @@ export const HeroHeader = ({
             variant="tertiary"
             tooltip="Resume"
             tooltipPosition="bottom"
+            target="_blank"
+            rel="noreferrer"
           />
         </Flex>
       </Flex>
@@ -173,6 +175,8 @@ export const HeroHeader = ({
                   href={resumeHref}
                   size="s"
                   variant="tertiary"
+                  target="_blank"
+                  rel="noreferrer"
                 />
               </Flex>
             )}
