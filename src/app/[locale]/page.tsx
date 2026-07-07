@@ -207,7 +207,7 @@ export default function About({
                   Selected Work
                 </Heading>
                 <RevealFx translateY="16" delay={0.2}>
-                  <Projects range={[1, 2]} locale={locale} />
+                  <Projects locale={locale} variant="slider" />
                 </RevealFx>
                 <Flex fillWidth justifyContent="center">
                   <Button
