@@ -11,6 +11,7 @@ import {
 import { baseURL, renderContent } from "@/app/resources";
 import { routes } from "@/app/resources";
 import { Projects } from "@/components/work/Projects";
+import { EmailCTA } from "@/components/EmailCTA";
 import { FocusSection } from "@/components/FocusSection";
 import { HeroHeader } from "@/components/HeroHeader";
 import TableOfContents from "@/components/about/TableOfContents";
@@ -177,25 +178,11 @@ export default function About({
 
             <Flex fillWidth style={{ marginTop: 30, marginBottom: 120 }}>
               <RevealFx translateY="12" delay={0.4}>
-                <Button
-                  id="contact"
-                  data-border="rounded"
-                  href="mailto:kalkidan.aleme@yahoo.com"
-                  variant="tertiary"
-                  size="m"
-                >
-                  <Flex gap="8" alignItems="center">
-                    {about.avatar.display && (
-                      <Avatar
-                        style={{ marginLeft: "-0.75rem", marginRight: "0.25rem" }}
-                        src={person.avatar}
-                        size="m"
-                      />
-                    )}
-                    {"Let's have a chat!"}
-                    <Arrow trigger="#contact" />
-                  </Flex>
-                </Button>
+                <EmailCTA
+                  email="kalkidan.aleme@yahoo.com"
+                  avatar={person.avatar}
+                  showAvatar={about.avatar.display}
+                />
               </RevealFx>
             </Flex>
           </FocusSection>
