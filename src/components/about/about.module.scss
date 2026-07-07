@@ -6,6 +6,33 @@
     }
 }
 
+.tocLabel {
+    max-width: 148px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* content takes the right 3/4 of the page; the nav rail owns the left 1/4 */
+.homeContent {
+    max-width: 75%;
+    margin-left: auto;
+    padding-bottom: var(--static-space-160);
+}
+
+@media (max-width: 1399px) {
+    .homeContent {
+        max-width: 64rem;
+        margin-inline: auto;
+    }
+}
+
+/* hide the fixed rail when the centered content would collide with it */
+@media (max-width: 1399px) {
+    .toc {
+        display: none !important;
+    }
+}
+
 @media (--s) {
     .textAlign {
         text-align: center;

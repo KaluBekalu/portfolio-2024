@@ -1,0 +1,30 @@
+.bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 8;
+    padding: var(--static-space-8) var(--static-space-24);
+    /* keep clear of the fixed clock on the right edge */
+    padding-right: 116px;
+    background: color-mix(in srgb, var(--page-background) 76%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--neutral-alpha-weak);
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.45s ease, opacity 0.45s ease;
+    pointer-events: none;
+}
+
+.barVisible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+    .bar {
+        padding-right: var(--static-space-24);
+    }
+}

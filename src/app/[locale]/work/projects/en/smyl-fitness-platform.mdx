@@ -1,0 +1,32 @@
+---
+title: "SMYL Fitness — a health-technology platform, end to end"
+publishedAt: "2026-06-15"
+summary: "Production health-tech platform where I build and ship features end to end — React 19 frontend, FastAPI backend, and AWS ECS/Fargate infrastructure with fully automated CI/CD."
+images:
+  - "/images/projects/smyl-platform/cover-01.png"
+team:
+  - name: "Kalkidan Aleme"
+    role: "Software Engineer II"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/kalkidanaleme"
+---
+
+## Overview
+
+[SMYL Fitness](https://smylfitness.com) is a health-technology platform for member engagement and structured health interventions — managing member profiles, assessments, fitness programs, provider networks, events, workshops, and automated IVR call scheduling. As Software Engineer II, I build and ship features across the entire stack: frontend, backend services, and the AWS infrastructure they run on.
+
+## What I Build
+
+- **Frontend**: React 19 + TypeScript + Vite, with TanStack Router/Query for server state, Jotai for client state, and React Hook Form + Zod for accessible, validated interfaces — organized with Feature-Sliced Design and strict import rules.
+- **Backend**: FastAPI (Python) services following a clean API → Service → CRUD layering with SQLAlchemy 2.0, Pydantic, and PostgreSQL, documented via OpenAPI.
+- **Auth & analytics**: Clerk for authentication and member sync via webhooks; PostHog for product analytics and funnel tracking on both frontend and backend.
+- **Communication automation**: Twilio-powered SMS and IVR call routing, with timezone-correct scheduling — all dates stored in UTC, member-facing calendar logic computed in each member's home timezone.
+- **Device fleet**: Mobile Device Management with Esper for remote tablet control and kiosk-mode enforcement in the field.
+
+## Infrastructure & CI/CD Ownership
+
+I own the GitHub Actions pipelines that take every change from commit to production: automated tests, Docker builds, and deployments to AWS ECS/Fargate — auto-deploying to staging from `main` with manual production promotion, plus Fly.io preview deploys per pull request. I migrated our build runners to Blacksmith for faster pipelines, and made builds reproducible with Nix.
+
+## Quality Strategy
+
+I established the testing strategy across the platform: Playwright for end-to-end flows, Vitest and React Testing Library for units and components, and pytest on the backend — enforced alongside Biome, Ruff, and mypy via Husky pre-commit hooks.

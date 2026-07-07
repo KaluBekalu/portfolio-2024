@@ -1,0 +1,31 @@
+---
+title: "Guaro — inventory & POS for neighborhood shops"
+publishedAt: "2025-12-05"
+summary: "Multi-tenant inventory, point-of-sale, and buying-trip manager for small shops — Next.js 15 + Fastify + Postgres row-level security, deployed to Fly.io with fully automated CI/CD."
+images:
+  - "/images/projects/guaro/cover-01.png"
+team:
+  - name: "Kalkidan Aleme"
+    role: "Creator & Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/kalkidanaleme"
+---
+
+## Overview
+
+[Guaro](https://guaro-web.fly.dev) is a cloud-hosted inventory, point-of-sale, and buying-trip manager built for small neighborhood shops. It covers the full retail loop: track stock, ring up sales, plan restocking trips with multi-currency costs, and watch the business from a dashboard — with multi-shop accounts and per-shop roles.
+
+## Key Features
+
+- **True multi-tenancy**: One account can belong to multiple shops with owner/staff roles per shop — and tenant isolation is enforced at the database level with Postgres Row-Level Security, not just application code.
+- **Buying-trip logistics**: Records purchases in foreign currency with FX-rate snapshots, tracks overhead separately, and computes per-trip profit & loss.
+- **Inventory depth**: SKU/barcode tracking, product variants, base-unit vs pack-unit pricing, low-stock and expiry alerts, and a full adjustment history.
+- **POS & dashboard**: Fast sales ringup and a business dashboard for the day-to-day pulse of the shop.
+
+## Tech Stack
+
+A pnpm monorepo with two apps and three shared packages: a Next.js 15 (App Router) frontend with Tailwind CSS 4, and a Fastify 5 API with Zod validation and a generated [Swagger/OpenAPI surface](https://guaro-api.fly.dev/docs). Drizzle ORM manages Neon Postgres, with Biome, Vitest, and Husky keeping quality gates automatic.
+
+## CI/CD
+
+GitHub Actions runs lint, typecheck, build, and tests on every pull request; merging to `main` deploys both apps to Fly.io with automatic database migrations — zero-touch from merge to production.

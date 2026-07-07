@@ -1,0 +1,31 @@
+---
+title: "Intervention API — an 84-day exercise program engine"
+publishedAt: "2026-04-20"
+summary: "Dedicated Node.js/Express service powering SMYL's 84-day exercise intervention program: participant progression, coach assignment, safety tracking, and web push notifications."
+images:
+  - "/images/projects/smyl-intervention/cover-01.png"
+team:
+  - name: "Kalkidan Aleme"
+    role: "Software Engineer II"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/kalkidanaleme"
+---
+
+## Overview
+
+The Intervention API is a dedicated backend service inside the SMYL platform that runs a structured 84-day exercise intervention program — tracking participant progression, coaching relationships, cohorts, and safety, and delivering reminders through web push notifications. It's built with Node.js, Express 5, and TypeScript, with Drizzle ORM and a ts-rest contract that generates the OpenAPI spec directly from code.
+
+## Key Features
+
+- **Program progression**: Tracks each participant's advancement through the 84-day program, with safety lockouts that pause progression after high exertion ratings.
+- **Coaching & cohorts**: Coach-to-participant assignment with bulk operations designed for partial-failure resilience, cohort grouping, and participant ranking for progress visualization.
+- **Safety tracking**: Exertion ratings and daily safety acknowledgments, enforced per member timezone.
+- **Push notifications**: VAPID-based web push subscription management with automated reminder scheduling via cron.
+- **Reporting**: Activity tracking with Excel export for program reporting.
+
+## Engineering Highlights
+
+- **Cross-schema architecture**: The service owns its own `intervention` Postgres schema while reading platform-owned identity tables through read-only Drizzle projections — clean ownership boundaries within a shared database.
+- **Atomic domain operations**: Multi-step writes like enrollment plus initial safety state run in single transactions, and Postgres constraint violations are automatically mapped to domain errors (409/404) at a single choke point.
+- **Org-scoped authorization**: All role lookups are scoped to the organization ID from Clerk JWT claims, preventing cross-org data leakage.
+- **Fast, Docker-free tests**: Vitest integration tests run against PGlite in-memory Postgres — the full suite needs no containers, keeping CI fast and local feedback instant.

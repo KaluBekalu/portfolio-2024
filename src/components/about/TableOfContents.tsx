@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { Flex, Text } from '@/once-ui/components';
+import React, { useState } from 'react';
+import { Flex, IconButton, Text } from '@/once-ui/components';
 import styles from './about.module.scss';
 
 interface TableOfContentsProps {
@@ -19,6 +19,8 @@ interface TableOfContentsProps {
 }
 
 const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) => {
+    const [collapsed, setCollapsed] = useState(false);
+
     const scrollTo = (id: string, offset: number) => {
         const element = document.getElementById(id);
         if (element) {
@@ -36,6 +38,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
 
     return (
         <Flex
+            className={styles.toc}
             style={{
                 left: '0',
                 top: '50%',
@@ -43,8 +46,17 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
                 whiteSpace: 'nowrap'
             }}
             position="fixed"
-            paddingLeft="24" gap="32"
+            paddingLeft="24" gap="16"
             direction="column" hide="s">
+            <IconButton
+                icon={collapsed ? 'chevronRight' : 'chevronLeft'}
+                variant="secondary"
+                size="s"
+                tooltip={collapsed ? 'Show navigation' : 'Hide navigation'}
+                tooltipPosition="right"
+                onClick={() => setCollapsed((value) => !value)}
+            />
+            {!collapsed && <Flex gap="32" direction="column">
             {structure
                 .filter(section => section.display)
                 .map((section, sectionIndex) => (
@@ -59,7 +71,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
                             height="1" width="16"
                             background="neutral-strong">
                         </Flex>
-                        <Text>
+                        <Text className={styles.tocLabel}>
                             {section.title}
                         </Text>
                     </Flex>
@@ -77,7 +89,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
                                         height="1" width="8"
                                         background="neutral-strong">
                                     </Flex>
-                                    <Text>
+                                    <Text className={styles.tocLabel}>
                                         {item}
                                     </Text>
                                 </Flex>
@@ -86,6 +98,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
                     )}
                 </Flex>
             ))}
+            </Flex>}
         </Flex>
     );
 };

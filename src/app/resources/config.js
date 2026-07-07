@@ -1,4 +1,5 @@
-const baseURL = "demo.magic-portfolio.com";
+// TODO: set to the real production domain once deployed (used for OG images & sitemap)
+const baseURL = "kalkidanaleme.com";
 
 // Enable localization
 const i18n = false;
@@ -13,16 +14,14 @@ const routes = {
   "/": true,
   "/contact": true,
   "/about": false,
-  "/work": false,
+  "/work": true,
   "/blog": false,
   "/gallery": false,
 };
 
 // Enable password protection on selected routes
 // Set password in pages/api/authenticate.ts
-const protectedRoutes = {
-  "/work/automate-design-handovers-with-a-figma-to-code-pipeline": true,
-};
+const protectedRoutes = {};
 
 const effects = {
   mask: "cursor", // none | cursor | topLeft | topRight | bottomLeft | bottomRight
@@ -52,10 +51,10 @@ const style = {
   // transition: "all", // all | micro | macro
 
   theme: "dark",
-  brand: "blue",
+  brand: "cyan",
   accent: "emerald",
   neutral: "slate",
-  border: "conservative",
+  border: "playful",
   solid: "contrast",
   solidStyle: "flat",
   surface: "translucent",
@@ -63,7 +62,9 @@ const style = {
 };
 
 const display = {
-  location: true,
+  // location lives in the hero; keeping it out of the fixed header
+  // so the condensed hero bar has room on the left
+  location: false,
   time: true,
 };
 

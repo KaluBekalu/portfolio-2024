@@ -1,0 +1,33 @@
+---
+title: "Ronen Notes — frictionless feedback for creators"
+publishedAt: "2026-02-10"
+summary: "Collaborative note-taking platform where creators share rich-text notes and collect threaded, per-section feedback — reviewers join via share link, no signup required. Live on Fly.io."
+images:
+  - "/images/projects/ronen-notes/cover-01.png"
+team:
+  - name: "Kalkidan Aleme"
+    role: "Creator & Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/kalkidanaleme"
+---
+
+## Overview
+
+[Ronen Notes](https://ronen-notes.fly.dev) solves a simple but stubborn problem: collecting feedback on written work without forcing every reviewer to create an account. Creators write rich-text notes, mark specific sections as open for comments, and share a link — contributors join with lightweight per-note credentials and leave threaded feedback exactly where it belongs.
+
+It's also my hands-on testbed for agentic AI development workflows, built end to end with Claude Code and Cursor in the loop.
+
+## Key Features
+
+- **Dual auth model**: Full accounts (email/password + Google/GitHub OAuth via Arctic) for creators; lightweight per-note contributor identities for reviewers — no global signup friction.
+- **Granular feedback scope**: Sections are individually marked as collaborative, so creators control exactly where comments are allowed.
+- **Threaded comments**: Nested discussion threads on each section, modeled with thread and parent-comment relations.
+- **Share tokens**: Every note gets a unique share token for access without global auth.
+
+## Tech Stack
+
+Next.js 16 (App Router) with React 19 and TypeScript strict mode, Tailwind CSS 4 with Radix UI/shadcn components, and a Tiptap 3 rich-text editor storing structured JSON. Prisma 7 talks to Neon Postgres, with Zod validating every input.
+
+## Deployment
+
+Runs on Fly.io with release-time Prisma migrations, auto-scaling, forced HTTPS, and tuned concurrency limits — a complete production setup for a side project, with ESLint, strict TypeScript, and Husky pre-commit hooks keeping the codebase honest.

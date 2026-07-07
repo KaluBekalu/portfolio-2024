@@ -2,15 +2,15 @@ import { InlineCode } from "@/once-ui/components";
 
 const person = {
   firstName: "Kalkidan",
-  lastName: "Bekalu",
+  lastName: "Aleme",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Full-Stack Developer",
+  role: "Full-Stack Software Engineer",
   avatar: "/images/avatar.jpg",
   location: "America/Chicago",
   city: "Chicago",
-  languages: ["JavaScript", "TypeScript", "Java", "Rust", "Go"], // Languages based on your technical skills
+  languages: ["TypeScript", "JavaScript", "Python", "React", "Node.js", "AWS"],
 };
 
 const newsletter = {
@@ -29,7 +29,7 @@ const contact = {
   title: <>Let's Connect 📫</>,
   description: (
     <>
-     Email me using the bellow form. I'll respond fast 🤞
+     Email me using the below form. I'll respond fast 🤞
     </>
   ),
 };
@@ -54,15 +54,15 @@ const social = [
 
 const home = {
   label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Full-Stack Developer</>,
+  title: `${person.name} — ${person.role}`,
+  description: `Portfolio of ${person.name}, a full-stack software engineer building production web apps across healthcare, enterprise, and startups.`,
+  headline: <>I build products end to end.</>,
   subline: (
     <>
       I'm <InlineCode>{person.firstName}</InlineCode>, a {person.city}-based
-      full-stack developer dedicated to building user-focused applications.
-      While seeking my next opportunity, I continue creating innovative side
-      projects that solve real-world problems.
+      full-stack engineer with 6+ years shipping production software. Right now
+      I'm building a health-technology platform at SMYL Fitness Rx — from React
+      19 frontends to Python and Node.js services on AWS.
     </>
   ),
 };
@@ -70,7 +70,7 @@ const home = {
 const about = {
   label: "About",
   title: "About me",
-  description: `Meet ${person.name}, a ${person.role} from ${person.location}`,
+  description: `Meet ${person.name}, a ${person.role} from ${person.city}`,
   tableOfContent: {
     display: true,
     subItems: true,
@@ -87,11 +87,16 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Kalkidan is a {person.city}-based full-stack developer with a passion
-        for transforming complex challenges into simple, efficient web
-        solutions.
+        Full-stack software engineer with 6+ years building and shipping
+        production web applications across healthcare, enterprise, and startup
+        environments. Strong across React/TypeScript frontends and
+        Node.js/Python backends, with hands-on ownership of CI/CD pipelines,
+        Docker, and AWS infrastructure.
         <br />
-        His work spans scalable systems, APIs, and interactive experiences.
+        <br />
+        Currently building a health-technology platform end to end —
+        architecture, delivery, and deployment — while integrating AI-assisted
+        development responsibly into day-to-day engineering.
       </>
     ),
   },
@@ -100,60 +105,72 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "Kimberly Clark",
-        timeframe: "November 2022 - October 2024",
-        role: "Full-Stack Developer",
+        company: "SMYL Fitness Rx",
+        timeframe: "March 2025 - Present",
+        role: "Software Engineer II",
         achievements: [
           <>
-            Designed a customer resource management tool in TypeScript and
-            Node.js, improving client tracking and communication.
+            Build and ship features end to end on a health-technology platform
+            using React 19, TypeScript, and Vite, with TanStack Query and Jotai
+            for state and Material-UI, React Hook Form, and Zod for accessible,
+            validated interfaces.
           </>,
           <>
-            Integrated OAuth 2.0 for secure authentication and standards
-            compliance.
+            Own GitHub Actions CI/CD pipelines covering automated testing,
+            Docker builds, and AWS ECS/Fargate deployments; migrated build
+            runners to Blacksmith for faster pipelines.
           </>,
           <>
-            Led security audits to enhance application stability and API
-            security.
-          </>,
-        ],
-        images: [
-          // {
-          //   src: "/images/projects/project-01/cover-01.jpg",
-          //   alt: "Kimberly Clark Project",
-          //   width: 16,
-          //   height: 9,
-          // },
-        ],
-      },
-      {
-        company: "Xtivia Inc.",
-        timeframe: "January 2021 - March 2023",
-        role: "Full-Stack Developer",
-        achievements: [
-          <>
-            Redesigned company websites to improve user experience and
-            functionality.
+            Implemented Mobile Device Management with Esper for remote tablet
+            control and kiosk-mode enforcement, and Twilio IVR to automate
+            customer communication.
           </>,
           <>
-            Built internal portals to streamline team collaboration and
-            efficiency.
+            Established a testing strategy across Playwright (E2E), Vitest
+            (unit), and React Testing Library; enforced code quality with Biome
+            and Husky pre-commit hooks.
           </>,
         ],
         images: [],
       },
       {
-        company: "Acelab",
-        timeframe: "March 2019 - May 2021",
-        role: "Full-Stack Developer",
+        company: "Kimberly-Clark",
+        timeframe: "November 2022 - February 2025",
+        role: "Full-Stack Engineer",
         achievements: [
           <>
-            Designed audit procedure backend applications for accurate auditing
-            processes.
+            Built enterprise web applications serving 2,000+ internal users
+            with React, Next.js, TypeScript, and Node.js in agile,
+            cross-functional teams.
           </>,
           <>
-            Built features using Java, Spring Boot, and MongoDB for data
-            management.
+            Implemented server-side solutions with Node.js and GraphQL,
+            reducing API response times by roughly 30%.
+          </>,
+          <>
+            Led a documentation initiative that cut new-developer onboarding
+            time by roughly 40%, while maintaining a 90%+ sprint completion
+            rate.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "XTIVIA, Inc.",
+        timeframe: "February 2020 - October 2022",
+        role: "Full-Stack Engineer",
+        achievements: [
+          <>
+            Delivered full-stack features for enterprise and healthcare clients
+            across React and Vue.js frontends and Node.js/Express backends.
+          </>,
+          <>
+            Built real-time dashboards and patient-tracking tools with direct
+            input from healthcare providers.
+          </>,
+          <>
+            Architected microservices and deployed on AWS, reducing
+            infrastructure costs by roughly 40%.
           </>,
         ],
         images: [],
@@ -170,6 +187,10 @@ const about = {
           <>Bachelor of Science in Computer Science and Engineering</>
         ),
       },
+      {
+        name: "AWS Certified Developer – Associate",
+        description: <>Amazon Web Services certification, 2023</>,
+      },
     ],
   },
   technical: {
@@ -177,26 +198,57 @@ const about = {
     title: "Technical skills",
     skills: [
       {
-        title: "React",
-        description: <>Building dynamic and interactive user interfaces.</>,
-        images: [
-          // {
-          //   src: "/images/projects/project-01/cover-02.jpg",
-          //   alt: "Project image",
-          //   width: 16,
-          //   height: 9,
-          // },
-        ],
-      },
-      {
-        title: "Node.js",
-        description: <>Creating robust backend services and APIs.</>,
+        title: "Frontend",
+        description: (
+          <>
+            React 18/19, Next.js, Vue.js, Vite, TanStack Query, Jotai, Tailwind
+            CSS, Material-UI, React Hook Form, Zod — accessible, validated
+            interfaces built to WCAG guidelines.
+          </>
+        ),
         images: [],
       },
       {
-        title: "Microservices",
+        title: "Backend",
         description: (
-          <>Designing scalable and efficient service architectures.</>
+          <>
+            Node.js, Express, Fastify, Python, FastAPI, REST and GraphQL APIs,
+            SQLAlchemy, Pydantic — with PostgreSQL, MongoDB, Redis, and
+            Firestore.
+          </>
+        ),
+        images: [],
+      },
+      {
+        title: "Cloud & DevOps",
+        description: (
+          <>
+            AWS (ECS, Fargate, ECR, S3, EC2, Lambda), GCP, Docker, Kubernetes,
+            Terraform, Nix, and GitHub Actions CI/CD — owning pipelines from
+            commit to production.
+          </>
+        ),
+        images: [],
+      },
+      {
+        title: "Testing & Quality",
+        description: (
+          <>
+            Playwright end-to-end suites, Vitest unit tests, React Testing
+            Library — plus Biome and Husky pre-commit hooks to keep quality
+            enforced automatically.
+          </>
+        ),
+        images: [],
+      },
+      {
+        title: "AI-Assisted Development",
+        description: (
+          <>
+            Claude Code, Cursor, and Model Context Protocol (MCP) — integrated
+            with a disciplined view of where AI accelerates output versus where
+            human judgment is required.
+          </>
         ),
         images: [],
       },
@@ -212,8 +264,8 @@ const blog = {
 
 const work = {
   label: "Work",
-  title: "My projects",
-  description: `A showcase of projects developed by ${person.name}, ranging from real-time apps to e-commerce platforms.`,
+  title: "Selected work",
+  description: `Production systems built by ${person.name} — from a live health-technology platform to full-stack side projects running in the cloud.`,
 };
 
 const gallery = {
@@ -239,4 +291,4 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter,contact, home, about, blog, work, gallery };
+export { person, social, newsletter, contact, home, about, blog, work, gallery };

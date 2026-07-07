@@ -1,5 +1,5 @@
 import { getPosts } from '@/app/utils/utils';
-import { Flex } from '@/once-ui/components';
+import { Flex, Heading, RevealFx, Text } from '@/once-ui/components';
 import { Projects } from '@/components/work/Projects';
 import { baseURL, renderContent } from '@/app/resources';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
@@ -78,6 +78,28 @@ export default function Work(
                     }),
                 }}
             />
+            <Flex
+                fillWidth
+                direction="column"
+                paddingX="l"
+                marginBottom="l"
+                gap="m">
+                <RevealFx translateY="4">
+                    <Heading
+                        wrap="balance"
+                        variant="display-strong-l">
+                        {work.title}
+                    </Heading>
+                </RevealFx>
+                <RevealFx translateY="8" delay={0.2}>
+                    <Text
+                        wrap="balance"
+                        variant="body-default-l"
+                        onBackground="neutral-weak">
+                        {work.description}
+                    </Text>
+                </RevealFx>
+            </Flex>
             <Projects locale={locale}/>
         </Flex>
     );
