@@ -7,21 +7,47 @@
     bottom: 0;
     z-index: 9;
     background-color: var(--backdrop);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
     visibility: hidden;
-    transition: var(--transition-macro-medium);
+    transition: opacity 0.4s ease, backdrop-filter 0.4s ease, visibility 0.4s;
 
     &.open {
         opacity: 1;
         visibility: visible;
+        backdrop-filter: blur(10px) saturate(1.1);
+        -webkit-backdrop-filter: blur(10px) saturate(1.1);
     }
 }
 
 .dialog {
-    transform: scale(0.97) translateY(var(--static-space-16));
+    position: relative;
+    transform: scale(0.94) translateY(var(--static-space-16));
     opacity: 0;
     box-shadow: var(--shadow-xl);
     max-width: 52rem;
-    transition: var(--transition-macro-medium);
+    /* gentle pop: slight overshoot on the way in, plain fade for opacity */
+    transition:
+        transform 0.45s cubic-bezier(0.34, 1.4, 0.64, 1),
+        opacity 0.35s ease,
+        visibility 0.45s;
+
+    /* faint brand hairline across the top edge */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 12%;
+        right: 12%;
+        height: 1px;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            var(--brand-alpha-strong),
+            transparent
+        );
+        pointer-events: none;
+    }
 
     &.open {
         transform: scale(1) translateY(0);
