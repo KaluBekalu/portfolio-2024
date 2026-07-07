@@ -242,7 +242,7 @@ const about = {
         images: [],
       },
       {
-        title: "AI-Assisted Development",
+        title: "Agentic Development",
         description: (
           <>
             Claude Code, Cursor, and Model Context Protocol (MCP) — integrated

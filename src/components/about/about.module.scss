@@ -10,6 +10,15 @@
     max-width: 148px;
     overflow: hidden;
     text-overflow: ellipsis;
+    border-radius: var(--radius-s);
+    transition: max-width 0.35s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* hovering a truncated item reveals the full label, lifted on a soft halo */
+.hover:hover .tocLabel {
+    max-width: 440px;
+    background-color: var(--page-background);
+    box-shadow: 0 0 12px 8px var(--page-background);
 }
 
 /* content takes the right 3/4 of the page; the nav rail owns the left 1/4 */
