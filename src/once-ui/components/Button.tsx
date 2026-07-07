@@ -23,7 +23,7 @@ interface CommonProps {
 export type ButtonProps = CommonProps & React.ButtonHTMLAttributes<HTMLButtonElement>;
 export type AnchorProps = CommonProps & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
-const isExternalLink = (url: string) => /^https?:\/\//.test(url);
+const isExternalLink = (url: string) => /^(https?:\/\/|mailto:|tel:)/.test(url);
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps | AnchorProps>(({
     variant = 'primary',
@@ -64,8 +64,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps | AnchorProps>(({
                 <a
                     href={href}
                     ref={ref as React.Ref<HTMLAnchorElement>}
-                    target="_blank"
-                    rel="noreferrer"
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel={href.startsWith("http") ? "noreferrer" : undefined}
                     {...commonProps}
                     {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}>
                     {content}

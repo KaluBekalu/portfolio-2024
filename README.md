@@ -50,7 +50,7 @@ This portfolio isn’t just my resume—it’s my playground, my lab, and my can
 ## 🤝 **Let’s Connect!**
 - **LinkedIn**: [Find me here](https://www.linkedin.com/in/kalkidanaleme)  
 - **GitHub**: [Check out my code](https://github.com/kalubekalu)  
-- **Email**: [Drop me a line](mailto:kalkidan.bekalu@yahoo.com)  
+- **Email**: [Drop me a line](mailto:kalkidan.aleme@yahoo.com)  
 
 ---
 

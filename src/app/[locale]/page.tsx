@@ -180,7 +180,7 @@ export default function About({
                 <Button
                   id="contact"
                   data-border="rounded"
-                  href="mailto:kalkidan.bekalu@yahoo.com"
+                  href="mailto:kalkidan.aleme@yahoo.com"
                   variant="tertiary"
                   size="m"
                 >

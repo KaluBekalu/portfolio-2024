@@ -25,7 +25,7 @@ interface CommonProps {
 type ButtonProps = CommonProps & ButtonHTMLAttributes<HTMLButtonElement>;
 type AnchorProps = CommonProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 
-const isExternalLink = (url: string) => /^https?:\/\//.test(url);
+const isExternalLink = (url: string) => /^(https?:\/\/|mailto:|tel:)/.test(url);
 
 const ToggleButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps | AnchorProps>(({
     label,
@@ -83,8 +83,8 @@ const ToggleButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPro
                 <a
                     href={href}
                     ref={ref as React.Ref<HTMLAnchorElement>}
-                    target="_blank"
-                    rel="noreferrer"
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel={href.startsWith("http") ? "noreferrer" : undefined}
                     {...commonProps}
                     {...(props as AnchorHTMLAttributes<HTMLAnchorElement>)}>
                     {content}
