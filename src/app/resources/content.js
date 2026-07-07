@@ -200,56 +200,85 @@ const about = {
       {
         title: "Frontend",
         description: (
-          <>
-            React 18/19, Next.js, Vue.js, Vite, TanStack Query, Jotai, Tailwind
-            CSS, Material-UI, React Hook Form, Zod — accessible, validated
-            interfaces built to WCAG guidelines.
-          </>
+          <>Accessible, validated interfaces built to WCAG guidelines.</>
         ),
+        techs: [
+          { name: "React 18/19", icon: "react", url: "https://react.dev" },
+          { name: "Next.js", icon: "nextjs", url: "https://nextjs.org" },
+          { name: "Vue.js", icon: "vue", url: "https://vuejs.org" },
+          { name: "Vite", icon: "vite", url: "https://vitejs.dev" },
+          { name: "TanStack Query", icon: "tanstack", url: "https://tanstack.com/query" },
+          { name: "Jotai", icon: "jotai", url: "https://jotai.org" },
+          { name: "Tailwind CSS", icon: "tailwind", url: "https://tailwindcss.com" },
+          { name: "Material-UI", icon: "mui", url: "https://mui.com" },
+          { name: "React Hook Form", icon: "reacthookform", url: "https://react-hook-form.com" },
+          { name: "Zod", icon: "zod", url: "https://zod.dev" },
+        ],
         images: [],
       },
       {
         title: "Backend",
         description: (
-          <>
-            Node.js, Express, Fastify, Python, FastAPI, REST and GraphQL APIs,
-            SQLAlchemy, Pydantic — with PostgreSQL, MongoDB, Redis, and
-            Firestore.
-          </>
+          <>Typed APIs and services on solid data models.</>
         ),
+        techs: [
+          { name: "Node.js", icon: "nodejs", url: "https://nodejs.org" },
+          { name: "Express", icon: "express", url: "https://expressjs.com" },
+          { name: "Fastify", icon: "fastify", url: "https://fastify.dev" },
+          { name: "Python", icon: "python", url: "https://www.python.org" },
+          { name: "FastAPI", icon: "fastapi", url: "https://fastapi.tiangolo.com" },
+          { name: "GraphQL", icon: "graphql", url: "https://graphql.org" },
+          { name: "SQLAlchemy", icon: "sqlalchemy", url: "https://www.sqlalchemy.org" },
+          { name: "PostgreSQL", icon: "postgresql", url: "https://www.postgresql.org" },
+          { name: "MongoDB", icon: "mongodb", url: "https://www.mongodb.com" },
+          { name: "Redis", icon: "redis", url: "https://redis.io" },
+        ],
         images: [],
       },
       {
         title: "Cloud & DevOps",
         description: (
-          <>
-            AWS (ECS, Fargate, ECR, S3, EC2, Lambda), GCP, Docker, Kubernetes,
-            Terraform, Nix, and GitHub Actions CI/CD — owning pipelines from
-            commit to production.
-          </>
+          <>Owning pipelines from commit to production.</>
         ),
+        techs: [
+          { name: "AWS", icon: "aws", url: "https://aws.amazon.com" },
+          { name: "Google Cloud", icon: "gcp", url: "https://cloud.google.com" },
+          { name: "Docker", icon: "docker", url: "https://www.docker.com" },
+          { name: "Kubernetes", icon: "kubernetes", url: "https://kubernetes.io" },
+          { name: "Terraform", icon: "terraform", url: "https://www.terraform.io" },
+          { name: "Nix", icon: "nix", url: "https://nixos.org" },
+          { name: "GitHub Actions", icon: "githubactions", url: "https://github.com/features/actions" },
+        ],
         images: [],
       },
       {
         title: "Testing & Quality",
         description: (
-          <>
-            Playwright end-to-end suites, Vitest unit tests, React Testing
-            Library — plus Biome and Husky pre-commit hooks to keep quality
-            enforced automatically.
-          </>
+          <>Quality enforced automatically, not by discipline.</>
         ),
+        techs: [
+          { name: "Playwright", icon: "playwright", url: "https://playwright.dev" },
+          { name: "Vitest", icon: "vitest", url: "https://vitest.dev" },
+          { name: "Testing Library", icon: "testinglibrary", url: "https://testing-library.com" },
+          { name: "Biome", icon: "biome", url: "https://biomejs.dev" },
+          { name: "Husky", icon: "husky", url: "https://typicode.github.io/husky" },
+        ],
         images: [],
       },
       {
         title: "Agentic Development",
         description: (
           <>
-            Claude Code, Cursor, and Model Context Protocol (MCP) — integrated
-            with a disciplined view of where AI accelerates output versus where
-            human judgment is required.
+            AI acceleration with a disciplined view of where human judgment is
+            required.
           </>
         ),
+        techs: [
+          { name: "Claude Code", icon: "anthropic", url: "https://claude.com/claude-code" },
+          { name: "Cursor", icon: "cursor", url: "https://cursor.com" },
+          { name: "Model Context Protocol", icon: "mcp", url: "https://modelcontextprotocol.io" },
+          { name: "OpenAI", icon: "openai", url: "https://openai.com" },
+        ],
         images: [],
       },
     ],

@@ -12,6 +12,7 @@ import { baseURL, renderContent } from "@/app/resources";
 import { routes } from "@/app/resources";
 import { Projects } from "@/components/work/Projects";
 import { EmailCTA } from "@/components/EmailCTA";
+import { SkillGrid } from "@/components/SkillGrid";
 import { FocusSection } from "@/components/FocusSection";
 import { HeroHeader } from "@/components/HeroHeader";
 import TableOfContents from "@/components/about/TableOfContents";
@@ -314,6 +315,9 @@ export default function About({
                     <Text variant="body-default-m" onBackground="neutral-weak">
                       {skill.description}
                     </Text>
+                    {skill.techs?.length > 0 && (
+                      <SkillGrid techs={skill.techs} />
+                    )}
                     {skill.images?.length > 0 && (
                       <Flex fillWidth paddingTop="m" gap="12" wrap>
                         {skill.images.map((image: any, index: any) => (
