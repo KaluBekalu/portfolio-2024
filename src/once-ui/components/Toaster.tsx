@@ -19,6 +19,9 @@ interface ToasterProps {
 const Toaster: React.FC<ToasterProps> = ({
     toasts,
     removeToast }) => {
+    const [mounted, setMounted] = React.useState(false);
+    React.useEffect(() => setMounted(true), []);
+    if (!mounted) return null;
     return createPortal(
         <Flex
             zIndex={11}

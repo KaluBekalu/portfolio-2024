@@ -14,7 +14,7 @@ import { getMessages, getTranslations, unstable_setRequestLocale } from 'next-in
 
 import { routing } from "@/i18n/routing";
 import { renderContent } from "@/app/resources";
-import { Background, Flex } from "@/once-ui/components";
+import { Background, Flex, ToastProvider } from "@/once-ui/components";
 
 export async function generateMetadata(
 	{ params: { locale }}: { params: { locale: string }}
@@ -123,6 +123,7 @@ export default async function RootLayout({
 						zIndex={0}
 						fillWidth paddingY="l" paddingX="l"
 						justifyContent="center" flex={1}>
+						<ToastProvider>
 						<Flex
 							justifyContent="center"
 							fillWidth minHeight="0">
@@ -130,6 +131,7 @@ export default async function RootLayout({
 								{children}
 							</RouteGuard>
 						</Flex>
+						</ToastProvider>
 					</Flex>
 					<Footer/>
 				</Flex>

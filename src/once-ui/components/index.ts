@@ -56,6 +56,7 @@ export { Text } from './Text';
 export { Textarea } from './Textarea';
 export { Toast } from './Toast';
 export { Toaster } from './Toaster';
+export { ToastProvider, useToast } from './ToastProvider';
 export { ToggleButton } from './ToggleButton';
 export { Tooltip } from './Tooltip';
 export { User } from './User';
