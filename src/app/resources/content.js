@@ -80,9 +80,7 @@ const about = {
   },
   calendar: {
     display: true,
-    // TODO: replace with your Google Calendar appointment-schedule link
-    // (Google Calendar → Appointment schedules → Share → copy link)
-    link: "https://calendar.app.google/REPLACE-ME",
+    link: "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3vpgLqourU-F5YGlVsO-4P6Zy2U3yyq-NZu-8SSFmIJZclUsMQknuk3I5QOP6gOpst_AA76Hp9",
   },
   intro: {
     display: true,
