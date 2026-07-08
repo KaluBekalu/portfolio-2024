@@ -170,11 +170,25 @@ export default function About({
 
             <Flex fillWidth style={{ marginTop: 30, marginBottom: 120 }}>
               <RevealFx translateY="12" delay={0.4}>
-                <EmailCTA
-                  email="kalkidan.aleme@yahoo.com"
-                  avatar={person.avatar}
-                  showAvatar={about.avatar.display}
-                />
+                <Flex gap="16" alignItems="flex-start" wrap>
+                  <EmailCTA
+                    email="kalkidan.aleme@yahoo.com"
+                    avatar={person.avatar}
+                    showAvatar={about.avatar.display}
+                  />
+                  {about.calendar.display && (
+                    <Button
+                      data-border="rounded"
+                      href={about.calendar.link}
+                      variant="secondary"
+                      size="m"
+                      prefixIcon="calendar"
+                      label="Schedule a call"
+                      target="_blank"
+                      rel="noreferrer"
+                    />
+                  )}
+                </Flex>
               </RevealFx>
             </Flex>
           </FocusSection>
