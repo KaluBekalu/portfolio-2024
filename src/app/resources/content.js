@@ -285,6 +285,50 @@ const about = {
   },
 };
 
+const hobbies = {
+  display: true,
+  title: "Off the Clock",
+  description:
+    "Proof I occasionally close the laptop — usually to point a camera at it or trade the keyboard for the other kind.",
+  items: [
+    {
+      icon: "youtube",
+      platform: "YouTube",
+      stat: 40000,
+      statSuffix: "",
+      label: "subscribers",
+      quip: "The main channel. Forty thousand people showed up — still not sure who told them.",
+      color: "#ff4d4d",
+    },
+    {
+      icon: "youtube",
+      platform: "YouTube",
+      stat: 4000,
+      statSuffix: "",
+      label: "subscribers · channel #2",
+      quip: "The side-quest channel. My own biggest competitor — the rivalry is intense.",
+      color: "#ff8a65",
+    },
+    {
+      icon: "tiktok",
+      platform: "TikTok",
+      stat: 55000,
+      statSuffix: "+",
+      label: "followers",
+      quip: "Short-form content, long-form grind. The algorithm and I have an understanding.",
+      color: "#fe2c55",
+    },
+    {
+      icon: "music",
+      platform: "Guitar & Keyboard",
+      statText: "2",
+      label: "instruments",
+      quip: "I deploy to living rooms nightly. Zero downtime, occasional wrong notes.",
+      color: "#fbbf24",
+    },
+  ],
+};
+
 const blog = {
   label: "Blog",
   title: "Writing about development and technology...",
@@ -320,4 +364,4 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, contact, home, about, blog, work, gallery };
+export { person, social, newsletter, contact, home, about, blog, work, gallery, hobbies };

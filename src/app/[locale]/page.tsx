@@ -12,6 +12,7 @@ import { baseURL, renderContent } from "@/app/resources";
 import { routes } from "@/app/resources";
 import { Projects } from "@/components/work/Projects";
 import { EmailCTA } from "@/components/EmailCTA";
+import { Hobbies } from "@/components/Hobbies";
 import { SkillGrid } from "@/components/SkillGrid";
 import { FocusSection } from "@/components/FocusSection";
 import { HeroHeader } from "@/components/HeroHeader";
@@ -62,7 +63,7 @@ export default function About({
 }) {
   unstable_setRequestLocale(locale);
   const t = useTranslations();
-  const { person, about, social } = renderContent(t);
+  const { person, about, social, hobbies } = renderContent(t);
   const structure = [
     {
       title: about.intro.title,
@@ -92,6 +93,11 @@ export default function About({
       items: about.studies.institutions.map(
         (institution: any) => institution.name
       ),
+    },
+    {
+      title: hobbies.title,
+      display: hobbies.display,
+      items: [],
     },
   ];
   return (
@@ -363,6 +369,16 @@ export default function About({
                   )
                 )}
               </Flex>
+            </FocusSection>
+          )}
+
+          {hobbies.display && (
+            <FocusSection>
+              <Hobbies
+                title={hobbies.title}
+                description={hobbies.description}
+                items={hobbies.items}
+              />
             </FocusSection>
           )}
         </Flex>
