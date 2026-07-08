@@ -28,3 +28,37 @@
         padding-right: var(--static-space-24);
     }
 }
+
+/* subtle sheen: a faint brand-tinted highlight drifts across the name */
+.name {
+    background: linear-gradient(
+        105deg,
+        var(--neutral-on-background-strong) 0%,
+        var(--neutral-on-background-strong) 42%,
+        var(--brand-solid-strong) 50%,
+        var(--neutral-on-background-strong) 58%,
+        var(--neutral-on-background-strong) 100%
+    );
+    background-size: 250% 100%;
+    background-position: 120% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: nameSheen 7s ease-in-out infinite;
+}
+
+@keyframes nameSheen {
+    0% {
+        background-position: 120% 0;
+    }
+    45%,
+    100% {
+        background-position: -130% 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .name {
+        animation: none;
+    }
+}

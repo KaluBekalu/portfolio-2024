@@ -5,7 +5,6 @@ import {
   Avatar,
   Button,
   Flex,
-  GlitchFx,
   Heading,
   Icon,
   IconButton,
@@ -130,14 +129,12 @@ export const HeroHeader = ({
           </Flex>
         )}
         <Flex direction="column" justifyContent="center" fillWidth>
-          <GlitchFx>
-            <Heading
-              className={aboutStyles.textAlign}
-              variant="display-strong-xl"
-            >
-              {name}
-            </Heading>
-          </GlitchFx>
+          <Heading
+            className={`${aboutStyles.textAlign} ${styles.name}`}
+            variant="display-strong-xl"
+          >
+            {name}
+          </Heading>
           <RevealFx style={{ flexDirection: "column" }}>
             <Text
               className={aboutStyles.textAlign}
