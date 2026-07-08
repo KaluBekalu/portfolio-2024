@@ -20,21 +20,6 @@ import styles from "@/components/about/about.module.scss";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
 
-import { Raleway } from "next/font/google";
-import { Sora } from "next/font/google";
-
-const primary = Raleway({
-  variable: "--font-primary",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const secondary = Sora({
-  variable: "--font-secondary",
-  subsets: ["latin"],
-  display: "swap",
-});
-
 export async function generateMetadata({
   params: { locale },
 }: {

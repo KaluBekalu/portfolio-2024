@@ -1,0 +1,100 @@
+.active,
+.active * {
+    cursor: none !important;
+}
+
+.active input,
+.active textarea {
+    cursor: text !important;
+}
+
+.dot,
+.ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    will-change: transform;
+
+    &[data-away="true"] {
+        opacity: 0;
+    }
+}
+
+.dot {
+    z-index: 100;
+}
+
+.ring {
+    z-index: 99;
+}
+
+.dotCircle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--brand-solid-strong);
+    box-shadow: 0 0 8px 0 var(--brand-alpha-strong);
+    transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+}
+
+.dot[data-hover="true"] .dotCircle {
+    width: 4px;
+    height: 4px;
+    background: var(--accent-solid-strong);
+}
+
+.ringCircle {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    border: 1.5px solid var(--brand-alpha-strong);
+    box-shadow:
+        0 0 20px -6px var(--brand-alpha-strong),
+        inset 0 0 14px -8px var(--accent-alpha-strong);
+    transition:
+        width 0.3s cubic-bezier(0.34, 1.4, 0.64, 1),
+        height 0.3s cubic-bezier(0.34, 1.4, 0.64, 1),
+        border-color 0.3s ease,
+        background 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.ring[data-hover="true"] .ringCircle {
+    width: 56px;
+    height: 56px;
+    border-color: var(--accent-alpha-strong);
+    background: color-mix(in srgb, var(--brand-solid-strong) 10%, transparent);
+}
+
+.ring[data-down="true"] .ringCircle {
+    width: 26px;
+    height: 26px;
+}
+
+.spark {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 98;
+    animation: sparkFly 0.55s cubic-bezier(0.2, 0.6, 0.3, 1) forwards;
+}
+
+@keyframes sparkFly {
+    from {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform:
+            translate(calc(-50% + var(--dx)), calc(-50% + var(--dy)))
+            scale(0.15);
+        opacity: 0;
+    }
+}

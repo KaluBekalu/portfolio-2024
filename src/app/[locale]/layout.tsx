@@ -4,10 +4,12 @@ import "@/once-ui/tokens/index.scss";
 import classNames from 'classnames';
 
 import { Footer, Header, RouteGuard } from "@/components";
+import { CursorFX } from "@/components/CursorFX";
 import { baseURL, effects, style } from '@/app/resources'
 
 import { Inter } from 'next/font/google'
-import { Source_Code_Pro } from 'next/font/google';
+import { Space_Grotesk } from 'next/font/google';
+import { JetBrains_Mono } from 'next/font/google';
 
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, unstable_setRequestLocale } from 'next-intl/server';
@@ -59,16 +61,14 @@ type FontConfig = {
     variable: string;
 };
 
-/*
-	Replace with code for secondary and tertiary fonts
-	from https://once-ui.com/customize
-*/
-const secondary: FontConfig | undefined = undefined;
+const secondary: FontConfig | undefined = Space_Grotesk({
+	variable: '--font-secondary',
+	subsets: ['latin'],
+	display: 'swap',
+});
 const tertiary: FontConfig | undefined = undefined;
-/*
-*/
 
-const code = Source_Code_Pro({
+const code = JetBrains_Mono({
 	variable: '--font-code',
 	subsets: ['latin'],
 	display: 'swap',
@@ -114,6 +114,7 @@ export default async function RootLayout({
 						gradient={effects.gradient as any}
 						dots={effects.dots as any}
 						lines={effects.lines as any}/>
+					<CursorFX/>
 					<Flex
 						fillWidth
 						minHeight="16">
