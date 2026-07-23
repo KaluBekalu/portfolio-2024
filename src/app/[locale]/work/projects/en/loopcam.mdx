@@ -1,0 +1,31 @@
+---
+title: "LoopCam — a virtual camera that loops you while you step away"
+publishedAt: "2026-07-23"
+summary: "A macOS virtual camera that loops a few seconds of you so a live stream or meeting keeps rolling while you step away, then snaps back live on a keypress. A Swift menu-bar app with a CoreMediaIO system extension and a HAL audio driver, signed and notarized, sold as a one-time Pro upgrade."
+images:
+  - "/images/projects/loopcam/cover-01.gif"
+team:
+  - name: "Kalkidan Aleme"
+    role: "Creator & Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/kalkidanaleme"
+---
+
+## Overview
+
+[LoopCam](https://loopcam.tibeblabs.com) is a virtual camera for macOS. Record ten seconds of yourself, loop it, and the stream keeps rolling while you grab water, fix the scene, or handle real life. Hold one key to jump back live, perfectly aligned, with the feed alive the whole time. It shows up in Zoom, Meet, OBS, and anything else that reads a camera, exactly like a real webcam.
+
+## Key Features
+
+- **Seamless loop and return**: Enters the loop on the exact frame you left and plays in reverse first, so there is no visible cut. Hold a configurable key to preview your live camera in a private safety window, align to a ghost of the landing frame, then snap back live with no jump.
+- **LoopCam Mic**: An optional virtual microphone that plays the loop's audio while looping and passes your real mic through when you are live, routed so it can never feed back and never reaches your speakers.
+- **Camera-off cards**: The video-off button broadcasts a styled avatar card that blends into Teams, Meet, and Zoom, not a black rectangle.
+- **Private and offline**: 100% local, no account, no telemetry, zero network requests. The Pro license is a signed key verified on the device.
+
+## Tech Stack
+
+A Swift and SwiftUI menu-bar app paired with a CoreMediaIO system extension that publishes the virtual camera, plus a CoreAudio HAL plug-in for the virtual microphone. Frames flow through a CVPixelBuffer pipeline (capture, scale, loop, and a camera-off compositor) into the extension's sink stream. The extension authorizes only the real app by verifying its code signature with the Security framework, rather than a spoofable bundle identifier, and everything runs under the hardened runtime.
+
+## Distribution
+
+Every build is signed with an Apple Developer ID and notarized by Apple, packaged as a signed `.dmg`, and served from Cloudflare R2 with the marketing site on Cloudflare Pages. The core app is free; the Pro toolkit is a one-time purchase handled by Paddle as merchant of record. Continuous delivery runs from a single tagged workflow: build, sign, notarize, staple, and publish.
