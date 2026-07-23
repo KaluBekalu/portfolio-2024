@@ -134,6 +134,15 @@ export default function Project({ params }: WorkParams) {
 					variant="display-strong-s">
 					{post.metadata.title}
 				</Heading>
+				{post.metadata.link && (
+					<Button
+						href={post.metadata.link}
+						variant="secondary"
+						size="s"
+						suffixIcon="arrowUpRight">
+						Visit live site
+					</Button>
+				)}
 			</Flex>
 			{post.metadata.images.length > 0 && (
 				<SmartImage
