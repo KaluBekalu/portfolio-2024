@@ -1,0 +1,30 @@
+---
+title: "Tibeb Chat — a $0 RAG chatbot recruiters can interview"
+publishedAt: "2026-08-04"
+summary: "Retrieval-augmented chatbot that answers questions about my experience and Tibeb Labs' products — embeddable on any site with one script tag, site-aware, and running entirely on free tiers. Python + TypeScript, no vector database."
+images:
+  - "/images/projects/tibeb-chat/cover-01.png"
+team:
+  - name: "Kalkidan Aleme"
+    role: "Creator & Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/kalkidanaleme"
+---
+
+## Overview
+
+[Tibeb Chat](https://tibebchat.tibeblabs.com) is a RAG (retrieval-augmented generation) chatbot that recruiters and visitors can ask about my skills, experience, and the products I've built. It ships two ways: a ChatGPT-style standalone app, and a ~6 KB embeddable widget that runs on tibeblabs.com, LoopCam, Ronen Notes, and this portfolio — one script tag, themed per site.
+
+The whole system runs at **$0/month**: Gemini free tier for embeddings and generation, Vercel Hobby for hosting, and deliberately no vector database.
+
+## Engineering Highlights
+
+- **Right-sized retrieval**: the corpus is small, so embeddings are pre-computed offline and committed to the repo; the serverless function does in-memory cosine top-k in microseconds. No vector DB — a deliberate architecture decision, not a shortcut.
+- **Site-aware answers**: the API resolves which site the widget is embedded on from the request origin, so "what is this website about?" asked on LoopCam answers about LoopCam.
+- **Free-tier resilience**: a cross-model fallback chain (Gemini 2.5 → 3.x → Groq) absorbs rate-limit bursts by exploiting per-model quota buckets — quota diversity as free redundancy.
+- **Grounding guardrails**: answers come only from the curated knowledge base, with source citations, prompt-injection resistance, and honest degradation messages when quotas run dry.
+- **Test-driven Python core**: chunking, normalized cosine ranking (Matryoshka-truncated embeddings aren't unit-length — there's a test proving why re-normalization matters), prompt building, and request validation all built test-first.
+
+## Tech Stack
+
+Python (numpy, google-genai) serverless API on Vercel, TypeScript widget in a Shadow DOM (esbuild, zero dependencies), Gemini `gemini-embedding-001` + a multi-model generation chain, pytest. [Source on GitHub](https://github.com/KaluBekalu/tibeb-rag-chat).
