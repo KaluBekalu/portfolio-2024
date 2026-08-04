@@ -137,8 +137,11 @@ export default async function RootLayout({
 					</Flex>
 					<Footer/>
 					<Script
-						src="https://rag-proj-nine.vercel.app/widget.js"
-						data-api="https://rag-proj-nine.vercel.app/api/chat"
+						src="https://tibebchat.tibeblabs.com/widget.js"
+						data-api="https://tibebchat.tibeblabs.com/api/chat"
+						data-accent="#22d3ee"
+						data-title="Ask about Kalkidan"
+						data-greeting="Hi! I'm Kalkidan's AI assistant. Ask me about his experience, skills, projects, or how to get in touch."
 						strategy="lazyOnload"
 					/>
 				</Flex>
