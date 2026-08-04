@@ -11,6 +11,7 @@ import { Inter } from 'next/font/google'
 import { Space_Grotesk } from 'next/font/google';
 import { JetBrains_Mono } from 'next/font/google';
 
+import Script from 'next/script';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
@@ -135,6 +136,11 @@ export default async function RootLayout({
 						</ToastProvider>
 					</Flex>
 					<Footer/>
+					<Script
+						src="https://rag-proj-nine.vercel.app/widget.js"
+						data-api="https://rag-proj-nine.vercel.app/api/chat"
+						strategy="lazyOnload"
+					/>
 				</Flex>
 			</Flex>
 		</NextIntlClientProvider>
