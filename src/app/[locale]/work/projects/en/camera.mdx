@@ -1,0 +1,31 @@
+---
+title: "Camera — the simple, open-source camera app macOS never shipped"
+publishedAt: "2026-07-25"
+summary: "A free, MIT-licensed camera app for macOS in native SwiftUI: full-bleed live preview, one-tap photos and video, Continuity Camera, digital zoom, and real aspect ratios. Capability-driven UI that only shows controls the active camera actually supports — and it builds without Xcode."
+images:
+  - "/images/projects/camera/cover-01.png"
+team:
+  - name: "Kalkidan Aleme"
+    role: "Creator & Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/kalkidanaleme"
+---
+
+## Overview
+
+[Camera](https://camera.tibeblabs.com) is the "just open a camera" utility macOS never shipped: an iOS-style camera app for the Mac. It launches fast into a full-bleed live preview with floating glass controls — one-tap photos, video with audio, a self-timer, and a menu-bar quick check. Your iPhone appears automatically through Continuity Camera, Desk View included. It's free, MIT-licensed, and [open source on GitHub](https://github.com/KaluBekalu/Camera).
+
+## Key Features
+
+- **Digital zoom and aspect ratios**: Pinch, scroll, or tap to zoom up to 6× — the limit derives from the camera's actual format resolution. Frame in 16:9, 4:3, or square with iOS-style dimmed masks; saved photos are cropped to exactly match the preview, with a never-lose-a-shot fallback if anything fails.
+- **Capability-driven controls**: The control column is built from what the active device *reports* — exposure/focus/white-balance locks, tap-to-focus, Center Stage (tracked live via KVO), and reaction effects appear only when supported. No device-identity conditionals anywhere.
+- **Continuity Camera**: iPhone and Desk View cameras are discovered alongside built-in and external ones, switchable from a glass menu.
+- **Private by construction**: 100% local — no accounts, no telemetry, no network requests at all.
+
+## Tech Stack
+
+Native Swift + SwiftUI over AVFoundation. An `AVCaptureVideoPreviewLayer` bridged into SwiftUI carries the preview; zoom is a GPU-composited layer transform matched at capture time by an ImageIO center-crop (macOS exposes no device zoom API — verified against the SDK headers). The crop/zoom geometry lives in a pure, unit-tested module, and the app icon is drawn programmatically with CoreGraphics. The whole project compiles with just the Xcode Command Line Tools via a portable `build.sh`, with CI on GitHub Actions.
+
+## Open Source
+
+The repo ships with the full contributor kit — MIT license, contributing guide with the project's design ground rules, issue and PR templates, security policy, and a researched roadmap (screen flash, video cropping via `AVAssetWriter`, filters) where each item is a ready-made first contribution.
