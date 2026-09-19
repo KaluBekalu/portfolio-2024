@@ -1,5 +1,5 @@
-// TODO: set to the real production domain once deployed (used for OG images & sitemap)
-const baseURL = "kalkidanaleme.com";
+// Production domain used for metadata and sitemap URLs.
+const baseURL = "kalkidan.tibeblabs.com";
 
 // Enable localization
 const i18n = false;

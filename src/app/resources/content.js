@@ -60,9 +60,9 @@ const home = {
   subline: (
     <>
       I'm <InlineCode>{person.firstName}</InlineCode>, a {person.city}-based
-      full-stack engineer with 6+ years shipping production software. Right now
-      I'm building a health-technology platform at SMYL Fitness Rx — from React
-      19 frontends to Python and Node.js services on AWS.
+      full-stack engineer with 6+ years shipping production software. I build
+      web applications and AI features through Tibeb Labs, using React,
+      TypeScript, Python, and Node.js.
     </>
   ),
 };
@@ -94,9 +94,9 @@ const about = {
         Docker, and AWS infrastructure.
         <br />
         <br />
-        Currently building a health-technology platform end to end —
-        architecture, delivery, and deployment — while integrating AI-assisted
-        development responsibly into day-to-day engineering.
+        Currently building web applications and independent products through
+        Tibeb Labs, including Tibeb Chat and LoopCam. Previously contributed
+        to SMYL Fitness Rx, a fall-prevention platform for older adults.
       </>
     ),
   },
@@ -105,18 +105,33 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
+        company: "Tibeb Labs",
+        timeframe: "2025 - Present",
+        role: "Freelance Full-Stack Engineer",
+        achievements: [
+          <>Build web applications and AI features with React, TypeScript, Node.js, and Python, from implementation through deployment.</>,
+          <>Build and ship independent products including Tibeb Chat, an embeddable RAG assistant, and LoopCam, a native macOS virtual camera.</>,
+        ],
+        images: [],
+      },
+      {
         company: "SMYL Fitness Rx",
-        timeframe: "March 2025 - Present",
-        role: "Software Engineer II",
+        timeframe: "March 2025 - July 2026",
+        role: "Full-Stack Engineer",
         achievements: [
           <>
-            Build and ship features end to end on a health-technology platform
+            Contributed to a platform now serving 20K users, with approximately
+            1.5K screened, 750 chair-stand assessments, and 80 participants in
+            the intervention program.
+          </>,
+          <>
+            Built and shipped features on a health-technology platform
             using React 19, TypeScript, and Vite, with TanStack Query and Jotai
             for state and Material-UI, React Hook Form, and Zod for accessible,
             validated interfaces.
           </>,
           <>
-            Own GitHub Actions CI/CD pipelines covering automated testing,
+            Maintained GitHub Actions CI/CD pipelines covering automated testing,
             Docker builds, and AWS ECS/Fargate deployments; migrated build
             runners to Blacksmith for faster pipelines.
           </>,
@@ -134,9 +149,9 @@ const about = {
         images: [],
       },
       {
-        company: "Kimberly-Clark",
+        company: "Kimberly-Clark (contract client)",
         timeframe: "November 2022 - February 2025",
-        role: "Full-Stack Engineer",
+        role: "Full-Stack Developer",
         achievements: [
           <>
             Built enterprise web applications serving 2,000+ internal users
@@ -156,9 +171,9 @@ const about = {
         images: [],
       },
       {
-        company: "XTIVIA, Inc.",
-        timeframe: "February 2020 - October 2022",
-        role: "Full-Stack Engineer",
+        company: "XTIVIA, Inc. (contract client)",
+        timeframe: "March 2020 - October 2022",
+        role: "Full-Stack Developer",
         achievements: [
           <>
             Delivered full-stack features for enterprise and healthcare clients

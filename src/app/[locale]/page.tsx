@@ -153,7 +153,7 @@ export default function About({
             location={person.location}
             languages={person.languages}
             social={social}
-            resumeHref="/Kalkidan_Aleme_Resume.pdf"
+            resumeHref="/Kalkidan_Aleme-General-Resume.pdf"
           />
 
           <FocusSection>
